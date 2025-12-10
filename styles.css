@@ -1,0 +1,536 @@
+/* ========================================================= */
+/* GLOBAL RESET + FONTS */
+/* ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0d0d0d;
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+}
+
+/* ========================================================= */
+/* F1 RIGHT SCROLL SPEED LINE */
+/* ========================================================= */
+#scrollLineRight {
+    position: fixed;
+    right: 0;
+    top: 20%;
+    width: 6px;
+    height: 0;
+    background: #ff0033;
+    border-radius: 5px;
+    opacity: 0;
+    box-shadow: 0 0 12px #ff0033;
+    z-index: 99999;
+    transition: opacity 0.15s ease;
+}
+
+/* ========================================================= */
+/* NAVBAR */
+/* ========================================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px 50px;
+    border-bottom: 4px solid #ff0033; 
+    background: #0b0b0b;
+    position: sticky;
+    top: 0;
+    z-index: 9000;
+}
+
+/* F1 vertical 3 strips */
+.f1-vertical-bars {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    margin-right: 16px;
+}
+
+.f1-vertical-bars span {
+    width: 32px;
+    height: 10px;
+    background: #ff0033;
+    transform: skew(-20deg);
+    border-radius: 3px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.logo .sub {
+    font-size: 20px;
+    opacity: 0.75;
+    margin-left: 6px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #ff0033;
+    text-shadow: 0 0 10px #ff0033;
+}
+
+.navbar a.contact-link {
+    color: #ff0033;
+    font-weight: 700;
+}
+
+/* ========================================================= */
+/* TAP TO START */
+/* ========================================================= */
+.tap-overlay {
+    position: fixed;
+    inset: 0;
+    background: black;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+/* ========================================================= */
+/* F1 INTRO ANIMATION */
+/* ========================================================= */
+.f1-start {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    animation: fadeOut 1s ease forwards;
+    animation-delay: 5.5s;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+.traffic-lights {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.tlight {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    opacity: 0.15;
+    transition: 0.4s;
+}
+
+.red { background: red; }
+.yellow { background: yellow; }
+.green { background: #00ff00; }
+
+.row.active .tlight {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.row.off .tlight {
+    opacity: 0;
+}
+
+/* swipe line */
+.f1-grid {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 6px;
+    background: #ff0033;
+    animation: gridSwipe 0.6s ease forwards;
+    animation-delay: 4.1s;
+}
+
+@keyframes gridSwipe {
+    to { left: 100%; }
+}
+
+/* blur effect */
+.f1-blur {
+    position: fixed;
+    inset: 0;
+    background: url("IMG/2025-Formula1-Ferrari-SF-25-003-2160.jpg") center/cover no-repeat;
+    opacity: 0;
+    filter: blur(8px);
+    animation: blurFlash 0.25s ease forwards, carSlide 1.2s ease-out forwards;
+    animation-delay: 4.8s, 4.8s;
+}
+
+@keyframes blurFlash {
+    0% { opacity: 0; }
+    40% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* ========================================================= */
+/* HERO */
+/* ========================================================= */
+.hero {
+    padding: 90px 20px 70px 20px;
+    text-align: center;
+    background: #121212;
+}
+
+.hello {
+    font-family: 'Audiowide', sans-serif;
+    font-size: 60px;
+    letter-spacing: 8px;
+}
+
+.highlight {
+    color: #ff0033;
+}
+
+.typing-text {
+    margin-top: 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 32px;
+    letter-spacing: 3px;
+}
+
+.description {
+    margin: 25px auto;
+    max-width: 650px;
+    opacity: 0.85;
+}
+
+
+/* ========================================================= */
+/* SECTION BASE */
+/* ========================================================= */
+.section {
+    padding: 80px 10% 100px 10%;
+}
+
+.section-title {
+    font-size: 45px;
+    color: #ff0033;
+    margin-bottom: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+/* ========================================================= */
+/* ABOUT ME */
+/* ========================================================= */
+.about {
+    background: #0a0a0a;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.about-text {
+    max-width: 650px;       /* ❗ batasi panjang paragraf */
+    font-size: 20px;
+    line-height: 1.7;
+    text-align: justify;    /* ❗ biar rapi kiri-kanan */
+    text-justify: inter-word;
+}
+
+.about-text p {
+    margin-bottom: 18px;
+}
+
+.about-images {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.about-img {
+    width: 48%;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #ff003360;
+}
+
+.cv-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 35px;
+    border: 2px solid #ff0033;
+    border-radius: 40px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.cv-btn:hover {
+    background: #ff0033;
+    box-shadow: 0 0 15px #ff0033;
+}
+
+/* ========================================================= */
+/* PROJECTS */
+/* ========================================================= */
+.projects {
+    background: #0c0c0c;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 28px;
+}
+
+.project-card {
+    background: #111;
+    padding: 30px;
+    border-radius: 12px;
+
+    border: 2px solid #ff0033cc;
+
+    box-shadow: 
+        0 0 15px #ff003370,
+        0 0 25px #ff003350,
+        inset 0 0 12px #ff003320;
+
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: #ff0033;
+
+    box-shadow: 
+        0 0 25px #ff0033cc,
+        0 0 40px #ff003399,
+        0 0 70px #ff003350,
+        inset 0 0 20px #ff003360;
+
+    transform: translateY(-8px) scale(1.03);
+}
+
+.project-img {
+    width: 100%;
+    object-fit: cover; 
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.project-btn {
+    color: #ff0033;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ========================================================= */
+/* SKILLS */
+/* ========================================================= */
+.skills {
+    background: #0b0b0b;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.skill-card {
+    background: #111;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #ff0033cc;
+
+    box-shadow: 
+        0 0 15px #ff003370,
+        0 0 25px #ff003350,
+        inset 0 0 12px #ff003320;
+
+    transition: 0.3s ease;
+}
+
+.skill-card:hover {
+    border-color: #ff0033;
+
+    box-shadow: 
+        0 0 25px #ff0033cc,
+        0 0 40px #ff003399,
+        0 0 70px #ff003350,
+        inset 0 0 20px #ff003360;
+
+    transform: translateY(-4px) scale(1.02);
+}
+
+.skill-card h3 {
+    color: #ff0033;
+    margin-bottom: 10px;
+}
+
+.skill-card ul {
+    margin-left: 20px;
+    line-height: 1.7;
+}
+
+/* ========================================================= */
+/* CONTACT */
+/* ========================================================= */
+.contact {
+    background: #0a0a0a;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* SUBTITLE → rapetin jaraknya */
+.contact-subtitle {
+    font-size: 18px;
+    opacity: 0.7;
+    letter-spacing: 3px;
+    margin-bottom: 5px !important;   /* ⬅⬅ jarak subtitle → title diperpendek */
+}
+
+/* TITLE → hilangkan jarak atas */
+.contact-title {
+    font-size: 55px;
+    color: #ff0033;
+    margin-top: 0px !important;      /* ⬅⬅ title nempel ke subtitle */
+    margin-bottom: 35px;             /* jarak ke tombol */
+}
+
+.contact-btn {
+    margin-top: 30%;
+    padding: 14px 40px;
+    border: 2px solid #ff0033;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background: #ff0033;
+}
+
+.contact-socials {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* CONTACT SOCIAL LINKS - enhanced */
+.contact-socials a {
+    font-size: 20px;          /* ⬅⬅ perbesar tulisan */
+    font-weight: 600;         /* ⬅⬅ bikin sedikit bold */
+    color: #ff0033;           /* ⬅⬅ merah biar mencolok */
+    opacity: 1;               /* ⬅⬅ jangan transparan */
+}
+
+.contact-socials a:hover {
+    color: #ffffff;           /* ⬅ efek hover putih */
+    text-shadow: 0 0 10px #ff0033;
+    transform: scale(1.08);   /* ⬅ grow effect */
+    transition: 0.2s ease;
+}
+
+
+.footer {
+    margin-top: 10px;  
+    margin-bottom: 5px; /* tambahin sedikit agar tidak kepentok layar */
+    opacity: 0.6;
+    font-size: 14px;
+}
+
+body {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* ========================================================= */
+/* RESPONSIVE */
+/* ========================================================= */
+@keyframes carSlide {
+    0% { background-position: -500px center; opacity: 0; }
+    10% { opacity: 1; }
+    100% { background-position: 1200px center; opacity: 1; }
+}
+
+@media (max-width: 900px) {
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;   /* ❗ memastikan gambar tetap center */
+    }
+
+    .about-text {
+        max-width: 100%;
+    }
+
+    .about-images {
+        flex-direction: column;  /* ❗ di HP → atas–bawah */
+        width: 100%;
+        align-items: center;     /* ❗ biar gambar nggak nempel kiri */
+        gap: 20px;
+    }
+
+    .about-img {
+        width: 90%;              /* ❗ lebih proporsional di layar kecil */
+        max-width: 380px;        /* ❗ biar tidak terlalu besar */
+    }
+}
+
+
+@media (max-width: 600px) {
+    .hello {
+        font-size: 42px;
+    }
+
+    .typing-text {
+        font-size: 24px;
+    }
+
+    .section {
+        padding: 80px 6%;
+    }
+}

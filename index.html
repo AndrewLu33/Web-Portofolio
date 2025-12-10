@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andrew | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;600;800&family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<!-- F1 Scroll Speed Line -->
+<div id="scrollLineRight"></div>
+
+<!-- TAP START -->
+<div id="tapStart" class="tap-overlay">TAP TO START</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">
+        <div class="f1-vertical-bars">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        ANDREW <span class="sub">Portfolio</span>
+    </div>
+
+    <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="contact-link">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- F1 INTRO ANIMATION -->
+<div class="f1-start">
+
+    <div class="f1-blur" id="carBlur"></div>
+    <div class="f1-grid"></div>
+
+    <div class="traffic-lights">
+        <div class="row red-row">
+            <div class="tlight red"></div>
+            <div class="tlight red"></div>
+            <div class="tlight red"></div>
+            <div class="tlight red"></div>
+            <div class="tlight red"></div>
+        </div>
+
+        <div class="row yellow-row">
+            <div class="tlight yellow"></div>
+            <div class="tlight yellow"></div>
+            <div class="tlight yellow"></div>
+            <div class="tlight yellow"></div>
+            <div class="tlight yellow"></div>
+        </div>
+
+        <div class="row green-row">
+            <div class="tlight green"></div>
+            <div class="tlight green"></div>
+            <div class="tlight green"></div>
+            <div class="tlight green"></div>
+            <div class="tlight green"></div>
+        </div>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <h1 class="hello">HELLO, MY NAME IS <span class="highlight">ANDREW</span></h1>
+    
+    <h2 class="typing-text">
+        <span id="typing"></span>
+    </h2>
+
+    <p class="description">
+        I'm a computer science undergraduate exploring AI, machine learning, deep learning, 
+        and data-driven problem solving through projects and collaborations.
+    </p>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+    <h2 class="section-title">ABOUT ME</h2>
+
+    <div class="about-container">
+
+        <!-- TEXT -->
+        <div class="about-text">
+            <p>
+                    I am a Computer Science student at BINUS University with a strong passion for data science, 
+                artificial intelligence, and building intelligent systems that create real-world impact.
+            </p>
+
+            <p>
+                    Through my involvement in KMBD and the BINUS Square Student Committee, I have strengthened 
+                both my technical and soft skills—ranging from data analysis, Python programming, 
+                SQL/database management, and performance tracking to communication, teamwork, and leadership.
+            </p>
+
+            <p>
+                    I have hands-on experience managing KPIs, conducting survey analytics, and supporting 
+                organizational operations, allowing me to develop a structured, analytical approach to 
+                problem-solving. These experiences sharpened my attention to detail and taught me how to 
+                balance stakeholders, technical outputs, and effective communication.
+            </p>
+
+            <p>
+                    I aspire to pursue a career as a <b>Data Scientist</b> or <b>AI Engineer</b>, leveraging 
+                data-driven insights and machine learning techniques to solve meaningful problems and 
+                deliver scalable, impactful solutions.
+            </p>
+            <a href="CV/CV - Andrew.pdf" class="cv-btn" download>Download My CV</a>
+        </div>
+
+        <!-- IMAGES (LEFT–RIGHT) -->
+        <div class="about-images">
+            <img src="IMG/img1.jpg" class="about-img">
+            <img src="IMG/img2.jpg" class="about-img">
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section projects" id="projects">
+    <h2 class="section-title">PROJECTS</h2>
+
+    <div class="project-grid">
+
+        <div class="project-card">
+            <img src="IMG/Project 1.jpg" class="project-img">
+            <h3>Stock Market Prediction</h3>
+            <p>Deep learning model combining historical prices & topic-distributed sentiment.</p>
+            <a href="https://github.com/AndrewLu33/Stock-Market-Prediction-Using-Deep-Learning.git" class="project-btn">View Project →</a>
+        </div>
+
+        <div class="project-card">
+            <img src="IMG/Project 2.png" class="project-img">
+            <h3>Webtoon Recommendation System</h3>
+            <p>Adaptive Webtoon recommender combining LightFM and Sentence-BERT for cold-start and personalized ranking.</p>
+            <a href="https://github.com/AndrewLu33/Webtoon-Recommendation-Website-ML-Project.git" target="_blank" class="project-btn">
+                View Project →
+            </a>
+        </div>
+
+        <div class="project-card">
+            <img src="IMG/Project 3.png" class="project-img">
+            <h3>DiamondCut Motors – Luxury Car UI/UX Design</h3>
+            <p>Designed a luxury car dealership website in Figma focusing on premium branding, intuitive navigation, and a clean black–gold visual identity.</p>
+            <a href="https://github.com/AndrewLu33/DiamondCut-Motors.git" class="project-btn">View Project →</a>
+        </div>
+
+        <!-- <div class="project-card">
+            <img src="https://via.placeholder.com/400x240?text=PROJECT+4" class="project-img">
+            <h3>Vehicle Detection Toll System</h3>
+            <p>YOLOv8 + EasyOCR pipeline for automated smart tolling.</p>
+            <a href="#" class="project-btn">View Project →</a>
+        </div> -->
+
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section skills" id="skills">
+    <h2 class="section-title">SKILLS</h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <h3>Languages</h3>
+            <ul>
+                <li>Bahasa Indonesia</li>
+                <li>English</li>
+                <li>Mandarin</li>
+            </ul>
+        </div>
+
+        <div class="skill-card">
+            <h3>Technical Tools</h3>
+            <ul>
+                <li>Excel, Word, PowerPoint</li>
+                <li>Canva, Figma</li>
+                <li>Google Colab, VS Code, XAMPP</li>
+            </ul>
+        </div>
+
+        <div class="skill-card">
+            <h3>Programming</h3>
+            <ul>
+                <li>C++, Java, Python</li>
+                <li>SQL</li>
+                <li>HTML, CSS, JavaScript</li>
+            </ul>
+        </div>
+
+        <div class="skill-card">
+            <h3>Soft Skills</h3>
+            <ul>
+                <li>Teamwork</li>
+                <li>Time Management</li>
+                <li>Communication</li>
+                <li>Leadership</li>
+                <li>Adaptability</li>
+            </ul>
+        </div>
+
+    </div> 
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+    <p class="contact-subtitle">GOT A VISION YOU WANT TO ACCELERATE?</p>
+    <h2 class="contact-title">LET'S HIT FULL THROTTLE</h2>
+
+    <a href="mailto:andrewwlu33@gmail.com" class="contact-btn">Send Me a Message</a>
+
+    <div class="contact-socials">
+        <a href="https://www.linkedin.com/in/andrew-%E3%85%A4-46a523223/">LinkedIn</a>
+        <a href="https://github.com/AndrewLu33">GitHub</a>
+    </div>
+
+    <p class="footer">© 2025 Andrew. All rights reserved.</p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
