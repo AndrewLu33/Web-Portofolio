@@ -1,67 +1,89 @@
 console.log("Andrew Portfolio Loaded Successfully");
 
-// =========================================================
-// TAP TO START (Unlock Audio + Start F1 Intro)
-// =========================================================
-let introStarted = false;
-
-document.getElementById("tapStart").addEventListener("click", () => {
-    if (introStarted) return;
-    introStarted = true;
-
-    document.getElementById("tapStart").style.display = "none";
-
+window.addEventListener("DOMContentLoaded", () => {
     startF1Intro();
 });
 
 // =========================================================
+// TAP TO START (Unlock Audio + Start F1 Intro)
+// =========================================================
+// let introStarted = false;
+
+// document.getElementById("tapStart").addEventListener("click", () => {
+//     if (introStarted) return;
+//     introStarted = true;
+
+//     document.getElementById("tapStart").style.display = "none";
+
+//     startF1Intro();
+// });
+
+// =========================================================
 // F1 INTRO SEQUENCE (Start sound → lights → engine sound)
 // =========================================================
+// function startF1Intro() {
+//     // const startSound = new Audio("Audio/start-sound.mp3");
+//     const engineSound = new Audio("Audio/start-engine.mp3");
+
+//     // startSound.volume = 1.0;
+//     engineSound.volume = 1.0;
+
+//     // 1. Start sound immediately
+//     // startSound.play();
+
+//     // 2. Activate light rows
+//     // const redRow = document.querySelector(".red-row");
+//     // const yellowRow = document.querySelector(".yellow-row");
+//     // const greenRow = document.querySelector(".green-row");
+
+//     // // Red lights on
+//     // setTimeout(() => redRow.classList.add("active"), 600);
+//     // setTimeout(() => redRow.classList.add("off"), 1600);
+
+//     // // Yellow lights on
+//     // setTimeout(() => yellowRow.classList.add("active"), 2000);
+//     // setTimeout(() => yellowRow.classList.add("off"), 3000);
+
+//     // // Green lights on
+//     // setTimeout(() => greenRow.classList.add("active"), 3400);
+//     // setTimeout(() => greenRow.classList.add("off"), 4400);
+
+//     // Show blur after green light
+//     setTimeout(() => {
+//         const blur = document.getElementById("carBlur");
+//         if (blur) {
+//             blur.style.animation = "blurFlash 0.35s ease forwards";
+//         }
+//     }, 4700);  // muncul sedikit setelah lampu hijau
+
+    
+//     // 3. Slight fade-out before engine
+//     // setTimeout(() => {
+//     //     startSound.volume = 0.4;
+//     // }, 4200);
+
+//     // 4. Play engine sound right after green (F1 timing)
+//     setTimeout(() => {
+//         engineSound.play();
+//     }, 4600);
+// }
+
 function startF1Intro() {
-    const startSound = new Audio("Audio/start-sound.mp3");
     const engineSound = new Audio("Audio/start-engine.mp3");
+    engineSound.volume = 0.8;
 
-    startSound.volume = 1.0;
-    engineSound.volume = 1.0;
+    engineSound.play().catch(err => {
+        console.warn("Autoplay blocked:", err);
+    });
 
-    // 1. Start sound immediately
-    startSound.play();
-
-    // 2. Activate light rows
-    const redRow = document.querySelector(".red-row");
-    const yellowRow = document.querySelector(".yellow-row");
-    const greenRow = document.querySelector(".green-row");
-
-    // Red lights on
-    setTimeout(() => redRow.classList.add("active"), 600);
-    setTimeout(() => redRow.classList.add("off"), 1600);
-
-    // Yellow lights on
-    setTimeout(() => yellowRow.classList.add("active"), 2000);
-    setTimeout(() => yellowRow.classList.add("off"), 3000);
-
-    // Green lights on
-    setTimeout(() => greenRow.classList.add("active"), 3400);
-    setTimeout(() => greenRow.classList.add("off"), 4400);
-
-    // Show blur after green light
+    // Flash / blur
     setTimeout(() => {
         const blur = document.getElementById("carBlur");
         if (blur) {
-            blur.style.animation = "blurFlash 0.35s ease forwards";
+            blur.style.animation =
+                "blurFlash 0.35s ease forwards, carSlide 1.2s ease-out forwards";
         }
-    }, 4700);  // muncul sedikit setelah lampu hijau
-
-    
-    // 3. Slight fade-out before engine
-    setTimeout(() => {
-        startSound.volume = 0.4;
-    }, 4200);
-
-    // 4. Play engine sound right after green (F1 timing)
-    setTimeout(() => {
-        engineSound.play();
-    }, 4600);
+    }, 100);
 }
 
 // =========================================================
@@ -124,11 +146,9 @@ window.addEventListener("scroll", () => {
 
     scrollLine.style.opacity = 1;
 
-    // The more scroll → the longer the line
     let scrollPercent = (window.scrollY / document.body.scrollHeight) * 100;
     scrollLine.style.height = (scrollPercent * 0.9) + "%";
 
-    // Auto fade-out
     scrollTimeout = setTimeout(() => {
         scrollLine.style.opacity = 0;
     }, 250);
