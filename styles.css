@@ -1,6 +1,6 @@
-/* ========================================================= /*
-/* GLOBAL RESET + FONTS /*
-/* ========================================================= /*
+/* ========================================================= */
+/* GLOBAL RESET + FONTS */
+/* ========================================================= */
 * {
     margin: 0;
     padding: 0;
@@ -15,11 +15,13 @@ body {
     background: #0d0d0d;
     font-family: 'Titillium Web', sans-serif;
     color: white;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
-/* ========================================================= /*
-/* F1 RIGHT SCROLL SPEED LINE /*
-/* ========================================================= /*
+/* ========================================================= */
+/* F1 RIGHT SCROLL SPEED LINE */
+/* ========================================================= */
 #scrollLineRight {
     position: fixed;
     right: 0;
@@ -30,26 +32,26 @@ body {
     border-radius: 5px;
     opacity: 0;
     box-shadow: 0 0 12px #ff0033;
-    z-index: 99999;
+    z-index: 10000;
     transition: opacity 0.15s ease;
 }
 
-/* ========================================================= /*
-/* NAVBAR /*
-/* ========================================================= /*
+/* ========================================================= */
+/* NAVBAR */
+/* ========================================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 26px 50px;
-    border-bottom: 4px solid #ff0033; 
+    border-bottom: 4px solid #ff0033;
     background: #0b0b0b;
     position: sticky;
     top: 0;
     z-index: 9000;
 }
 
-/* F1 vertical 3 strips /*
+/* F1 vertical 3 strips */
 .f1-vertical-bars {
     display: flex;
     flex-direction: column;
@@ -103,9 +105,9 @@ body {
     font-weight: 700;
 }
 
-/* ========================================================= /*
-/* TAP TO START /*
-/* ========================================================= /*
+/* ========================================================= */
+/* TAP TO START */
+/* ========================================================= */
 .tap-overlay {
     position: fixed;
     inset: 0;
@@ -117,12 +119,12 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 99999;
+    z-index: 11000;
 }
 
-/* ========================================================= /*
-/* F1 INTRO ANIMATION /*
-/* ========================================================= /*
+/* ========================================================= */
+/* F1 INTRO ANIMATION */
+/* ========================================================= */
 .f1-start {
     position: fixed;
     inset: 0;
@@ -131,13 +133,16 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 9999;
+    z-index: 9500;
     animation: fadeOut 1s ease forwards;
     animation-delay: 5.5s;
 }
 
 @keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 .traffic-lights {
@@ -186,14 +191,16 @@ body {
 }
 
 @keyframes gridSwipe {
-    to { left: 100%; }
+    to {
+        left: 100%;
+    }
 }
 
-/* blur effect /*
+/* blur effect */
 .f1-blur {
     position: fixed;
     inset: 0;
-    background: url("IMG/2025-Formula1-Ferrari-SF-25-003-2160.jpg") center/cover no-repeat;
+    background: url("IMG/2025-Formula1-Ferrari-SF-25-003-2160.jpg") center / cover no-repeat;
     opacity: 0;
     filter: blur(8px);
     animation: blurFlash 0.25s ease forwards, carSlide 1.2s ease-out forwards;
@@ -206,11 +213,11 @@ body {
     100% { opacity: 0; }
 }
 
-/* ========================================================= /*
-/* HERO /*
-/* ========================================================= /*
+/* ========================================================= */
+/* HERO */
+/* ========================================================= */
 .hero {
-    padding: 90px 20px 70px 20px;
+    padding: 90px 20px 70px;
     text-align: center;
     background: #121212;
 }
@@ -238,12 +245,11 @@ body {
     opacity: 0.85;
 }
 
-
-/* ========================================================= /*
-/* SECTION BASE /*
-/* ========================================================= /*
+/* ========================================================= */
+/* SECTION BASE */
+/* ========================================================= */
 .section {
-    padding: 80px 10% 100px 10%;
+    padding: 80px 10% 100px;
 }
 
 .section-title {
@@ -254,9 +260,9 @@ body {
     letter-spacing: 3px;
 }
 
-/* ========================================================= /*
-/* ABOUT ME /*
-/* ========================================================= /*
+/* ========================================================= */
+/* ABOUT ME */
+/* ========================================================= */
 .about {
     background: #0a0a0a;
 }
@@ -268,11 +274,10 @@ body {
 }
 
 .about-text {
-    max-width: 650px;       /* ❗ batasi panjang paragraf */
+    max-width: 650px;
     font-size: 20px;
     line-height: 1.7;
-    text-align: justify;    /* ❗ biar rapi kiri-kanan */
-    text-justify: inter-word;
+    text-align: justify;
 }
 
 .about-text p {
@@ -281,7 +286,6 @@ body {
 
 .about-images {
     display: flex;
-    flex-direction: row;
     gap: 25px;
 }
 
@@ -310,131 +314,27 @@ body {
     box-shadow: 0 0 15px #ff0033;
 }
 
-/* ========================================================= /*
-/* PROJECTS /*
-/* ========================================================= /*
-.projects {
-    background: #0c0c0c;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-    gap: 28px;
-}
-
-.project-card {
-    background: #111;
-    padding: 30px;
-    border-radius: 12px;
-
-    border: 2px solid #ff0033cc;
-
-    box-shadow: 
-        0 0 15px #ff003370,
-        0 0 25px #ff003350,
-        inset 0 0 12px #ff003320;
-
-    transition: 0.3s ease;
-}
-
-.project-card:hover {
-    border-color: #ff0033;
-
-    box-shadow: 
-        0 0 25px #ff0033cc,
-        0 0 40px #ff003399,
-        0 0 70px #ff003350,
-        inset 0 0 20px #ff003360;
-
-    transform: translateY(-8px) scale(1.03);
-}
-
-.project-img {
-    width: 100%;
-    object-fit: cover; 
-    border-radius: 10px;
-    margin-bottom: 12px;
-}
-
-.project-btn {
-    color: #ff0033;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-/* ========================================================= /*
-/* SKILLS /*
-/* ========================================================= /*
-.skills {
-    background: #0b0b0b;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-}
-
-.skill-card {
-    background: #111;
-    padding: 25px;
-    border-radius: 12px;
-    border: 2px solid #ff0033cc;
-
-    box-shadow: 
-        0 0 15px #ff003370,
-        0 0 25px #ff003350,
-        inset 0 0 12px #ff003320;
-
-    transition: 0.3s ease;
-}
-
-.skill-card:hover {
-    border-color: #ff0033;
-
-    box-shadow: 
-        0 0 25px #ff0033cc,
-        0 0 40px #ff003399,
-        0 0 70px #ff003350,
-        inset 0 0 20px #ff003360;
-
-    transform: translateY(-4px) scale(1.02);
-}
-
-.skill-card h3 {
-    color: #ff0033;
-    margin-bottom: 10px;
-}
-
-.skill-card ul {
-    margin-left: 20px;
-    line-height: 1.7;
-}
-
-/* ========================================================= /*
+/* ========================================================= */
 /* CONTACT */
-/* ========================================================= /*
+/* ========================================================= */
 .contact {
     background: #0a0a0a;
     text-align: center;
     padding-bottom: 10px;
 }
 
-
 .contact-subtitle {
     font-size: 18px;
     opacity: 0.7;
     letter-spacing: 3px;
-    margin-bottom: 5px !important;   
+    margin-bottom: 5px;
 }
-
 
 .contact-title {
     font-size: 55px;
     color: #ff0033;
-    margin-top: 0px !important;      
-    margin-bottom: 35px;            
+    margin-top: 0;
+    margin-bottom: 35px;
 }
 
 .contact-btn {
@@ -458,37 +358,29 @@ body {
     gap: 30px;
 }
 
-
 .contact-socials a {
-    font-size: 20px;          
-    font-weight: 600;         
-    color: #ff0033;           
-    opacity: 1;              
+    font-size: 20px;
+    font-weight: 600;
+    color: #ff0033;
 }
 
 .contact-socials a:hover {
-    color: #ffffff;           
+    color: #ffffff;
     text-shadow: 0 0 10px #ff0033;
-    transform: scale(1.08);   
+    transform: scale(1.08);
     transition: 0.2s ease;
 }
 
-
 .footer {
-    margin-top: 10px;  
-    margin-bottom: 5px; 
+    margin-top: 10px;
+    margin-bottom: 5px;
     opacity: 0.6;
     font-size: 14px;
 }
 
-body {
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-/* ========================================================= /*
+/* ========================================================= */
 /* RESPONSIVE */
-/* ========================================================= /*
+/* ========================================================= */
 @keyframes carSlide {
     0% { background-position: -500px center; opacity: 0; }
     10% { opacity: 1; }
@@ -496,11 +388,10 @@ body {
 }
 
 @media (max-width: 900px) {
-
     .about-container {
         flex-direction: column;
         text-align: center;
-        align-items: center;   /* ❗ memastikan gambar tetap center */
+        align-items: center;
     }
 
     .about-text {
@@ -508,18 +399,16 @@ body {
     }
 
     .about-images {
-        flex-direction: column;  
-        width: 100%;
-        align-items: center;     
+        flex-direction: column;
+        align-items: center;
         gap: 20px;
     }
 
     .about-img {
-        width: 90%;              
-        max-width: 380px;        
+        width: 90%;
+        max-width: 380px;
     }
 }
-
 
 @media (max-width: 600px) {
     .hello {
@@ -534,5 +423,3 @@ body {
         padding: 80px 6%;
     }
 }
-
-
