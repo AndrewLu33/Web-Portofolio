@@ -132,8 +132,7 @@ body {
     align-items: center;
     flex-direction: column;
     z-index: 9999;
-    animation: fadeOut 1s ease forwards;
-    animation-delay: 5.5s;
+    animation: fadeOut 0.8s ease forwards;
 }
 
 @keyframes fadeOut {
@@ -268,10 +267,10 @@ body {
 }
 
 .about-text {
-    max-width: 650px;       /* ❗ batasi panjang paragraf */
+    max-width: 650px;       
     font-size: 20px;
     line-height: 1.7;
-    text-align: justify;    /* ❗ biar rapi kiri-kanan */
+    text-align: justify;    
     text-justify: inter-word;
 }
 
@@ -426,15 +425,15 @@ body {
     font-size: 18px;
     opacity: 0.7;
     letter-spacing: 3px;
-    margin-bottom: 5px !important;   /* ⬅⬅ jarak subtitle → title diperpendek */
+    margin-bottom: 5px !important;   
 }
 
 /* TITLE → hilangkan jarak atas */
 .contact-title {
     font-size: 55px;
     color: #ff0033;
-    margin-top: 0px !important;      /* ⬅⬅ title nempel ke subtitle */
-    margin-bottom: 35px;             /* jarak ke tombol */
+    margin-top: 0px !important;      
+    margin-bottom: 35px;             
 }
 
 .contact-btn {
@@ -460,23 +459,23 @@ body {
 
 /* CONTACT SOCIAL LINKS - enhanced */
 .contact-socials a {
-    font-size: 20px;          /* ⬅⬅ perbesar tulisan */
-    font-weight: 600;         /* ⬅⬅ bikin sedikit bold */
-    color: #ff0033;           /* ⬅⬅ merah biar mencolok */
-    opacity: 1;               /* ⬅⬅ jangan transparan */
+    font-size: 20px;          
+    font-weight: 600;         
+    color: #ff0033;           
+    opacity: 1;               
 }
 
 .contact-socials a:hover {
-    color: #ffffff;           /* ⬅ efek hover putih */
+    color: #ffffff;           
     text-shadow: 0 0 10px #ff0033;
-    transform: scale(1.08);   /* ⬅ grow effect */
+    transform: scale(1.08);   
     transition: 0.2s ease;
 }
 
 
 .footer {
     margin-top: 10px;  
-    margin-bottom: 5px; /* tambahin sedikit agar tidak kepentok layar */
+    margin-bottom: 5px; 
     opacity: 0.6;
     font-size: 14px;
 }
@@ -500,7 +499,7 @@ body {
     .about-container {
         flex-direction: column;
         text-align: center;
-        align-items: center;   /* ❗ memastikan gambar tetap center */
+        align-items: center;   
     }
 
     .about-text {
@@ -508,15 +507,15 @@ body {
     }
 
     .about-images {
-        flex-direction: column;  /* ❗ di HP → atas–bawah */
+        flex-direction: column;  
         width: 100%;
-        align-items: center;     /* ❗ biar gambar nggak nempel kiri */
+        align-items: center;     
         gap: 20px;
     }
 
     .about-img {
-        width: 90%;              /* ❗ lebih proporsional di layar kecil */
-        max-width: 380px;        /* ❗ biar tidak terlalu besar */
+        width: 90%;              
+        max-width: 380px;        
     }
 }
 
