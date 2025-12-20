@@ -1,26 +1,24 @@
 console.log("Andrew Portfolio Loaded Successfully");
 
-window.addEventListener("DOMContentLoaded", () => {
-    startF1Intro();
-});
+let soundPlayed = false;
 
-function startF1Intro() {
+function tryPlaySound() {
+    if (soundPlayed) return;
+
     const engineSound = new Audio("Audio/start-engine.mp3");
     engineSound.volume = 0.8;
 
-    engineSound.play().catch(err => {
-        console.warn("Autoplay blocked:", err);
-    });
-
-    // Flash / blur
-    setTimeout(() => {
-        const blur = document.getElementById("carBlur");
-        if (blur) {
-            blur.style.animation =
-                "blurFlash 0.35s ease forwards, carSlide 1.2s ease-out forwards";
-        }
-    }, 100);
+    engineSound.play().then(() => {
+        soundPlayed = true;
+        window.removeEventListener("scroll", tryPlaySound);
+        window.removeEventListener("click", tryPlaySound);
+    }).catch(() => {});
 }
+
+// Play sound on FIRST interaction (scroll / click)
+window.addEventListener("scroll", tryPlaySound, { once: true });
+window.addEventListener("click", tryPlaySound, { once: true });
+
 
 // =========================================================
 // TYPING EFFECT
@@ -89,3 +87,4 @@ window.addEventListener("scroll", () => {
         scrollLine.style.opacity = 0;
     }, 250);
 });
+
