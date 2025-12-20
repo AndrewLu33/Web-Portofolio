@@ -1,23 +1,28 @@
 console.log("Andrew Portfolio Loaded Successfully");
 
+// =========================================================
+// AUDIO – SAFE FOR VERCEL & MOBILE
+// =========================================================
+const engineSound = new Audio("start-engine.mp3");
+engineSound.volume = 0.8;
+engineSound.preload = "auto";
+
 let soundPlayed = false;
 
-function tryPlaySound() {
+function handleUserInteraction() {
     if (soundPlayed) return;
 
-    const engineSound = new Audio("start-engine.mp3");
-    engineSound.volume = 0.8;
+    engineSound.play();
+    soundPlayed = true;
 
-    engineSound.play().then(() => {
-        soundPlayed = true;
-        window.removeEventListener("scroll", tryPlaySound);
-        window.removeEventListener("click", tryPlaySound);
-    }).catch(() => {});
+    // cleanup
+    window.removeEventListener("pointerdown", handleUserInteraction);
+    window.removeEventListener("scroll", handleUserInteraction);
 }
 
-// Play sound on FIRST interaction (scroll / click)
-window.addEventListener("scroll", tryPlaySound, { once: true });
-window.addEventListener("click", tryPlaySound, { once: true });
+// pointerdown = click + tap (BEST PRACTICE)
+window.addEventListener("pointerdown", handleUserInteraction, { once: true });
+window.addEventListener("scroll", handleUserInteraction, { once: true });
 
 
 // =========================================================
@@ -87,5 +92,6 @@ window.addEventListener("scroll", () => {
         scrollLine.style.opacity = 0;
     }, 250);
 });
+
 
 
