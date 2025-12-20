@@ -195,8 +195,6 @@ body {
     background: url("IMG/2025-Formula1-Ferrari-SF-25-003-2160.jpg") center/cover no-repeat;
     opacity: 0;
     filter: blur(8px);
-    animation: blurFlash 0.25s ease forwards, carSlide 1.2s ease-out forwards;
-    animation-delay: 4.8s, 4.8s;
 }
 
 @keyframes blurFlash {
@@ -533,3 +531,4 @@ body {
         padding: 80px 6%;
     }
 }
+
