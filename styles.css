@@ -133,7 +133,10 @@ body {
     flex-direction: column;
     z-index: 9999;
     animation: fadeOut 0.8s ease forwards;
-    animation-delay: 1.6s;
+    animation-delay: 2.4s;
+}
+.f1-blur {
+    background-color: red !important;
 }
 
 @keyframes fadeOut {
@@ -196,6 +199,8 @@ body {
     background: url("IMG/2025-Formula1-Ferrari-SF-25-003-2160.jpg") center/cover no-repeat;
     opacity: 0;
     filter: blur(8px);
+    animation: blurFlash 0.35s ease forwards, carSlide 1.2s ease-out forwards;
+    animation-delay: 0.8s, 0.8s;
 }
 
 @keyframes blurFlash {
@@ -532,5 +537,6 @@ body {
         padding: 80px 6%;
     }
 }
+
 
 
