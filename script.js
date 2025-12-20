@@ -1,28 +1,35 @@
 console.log("Andrew Portfolio Loaded Successfully");
 
 // =========================================================
-// AUDIO – GLOBAL (WAJIB UNTUK HTML & EVENT)
+// AUDIO + INTRO VISUAL (SYNCED)
 // =========================================================
-window.engineSound = new Audio("start-engine.mp3");
+const engineSound = new Audio("start-engine.mp3");
 engineSound.volume = 0.8;
 engineSound.preload = "auto";
 
-let soundPlayed = false;
+let introPlayed = false;
 
-function handleUserInteraction() {
-    if (soundPlayed) return;
+function playIntro() {
+    if (introPlayed) return;
+    introPlayed = true;
 
-    engineSound.play().catch(e => {
-        console.warn("Play failed:", e);
-    });
-    soundPlayed = true;
+    // PLAY SOUND
+    engineSound.play().catch(() => {});
 
-    window.removeEventListener("pointerdown", handleUserInteraction);
-    window.removeEventListener("scroll", handleUserInteraction);
+    // PLAY BLUR CAR
+    const blur = document.getElementById("carBlur");
+    if (blur) {
+        blur.style.animation =
+            "blurFlash 0.35s ease forwards, carSlide 1.2s ease-out forwards";
+    }
+
+    window.removeEventListener("pointerdown", playIntro);
+    window.removeEventListener("scroll", playIntro);
 }
 
-window.addEventListener("pointerdown", handleUserInteraction, { once: true });
-window.addEventListener("scroll", handleUserInteraction, { once: true });
+// User interaction required
+window.addEventListener("pointerdown", playIntro, { once: true });
+window.addEventListener("scroll", playIntro, { once: true });
 
 // =========================================================
 // TYPING EFFECT
@@ -38,7 +45,8 @@ let index = 0, charIndex = 0, isDeleting = false;
 
 function typeEffect() {
     const text = words[index];
-    document.getElementById("typing").textContent = text.substring(0, charIndex);
+    document.getElementById("typing").textContent =
+        text.substring(0, charIndex);
 
     if (!isDeleting) {
         charIndex++;
@@ -63,18 +71,18 @@ typeEffect();
 // =========================================================
 // NAVBAR SMOOTH SCROLL
 // =========================================================
-document.querySelector("a[href='#projects']")?.addEventListener("click", (e) => {
+document.querySelector("a[href='#projects']")?.addEventListener("click", e => {
     e.preventDefault();
     document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
 });
 
-document.querySelector("a[href='#contact']")?.addEventListener("click", (e) => {
+document.querySelector("a[href='#contact']")?.addEventListener("click", e => {
     e.preventDefault();
     document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
 });
 
 // =========================================================
-// RIGHT SIDE F1 SPEED LINE SCROLL EFFECT
+// RIGHT SIDE F1 SPEED LINE
 // =========================================================
 const scrollLine = document.getElementById("scrollLineRight");
 let scrollTimeout;
@@ -83,15 +91,10 @@ window.addEventListener("scroll", () => {
     clearTimeout(scrollTimeout);
 
     scrollLine.style.opacity = 1;
-
-    let scrollPercent = (window.scrollY / document.body.scrollHeight) * 100;
-    scrollLine.style.height = (scrollPercent * 0.9) + "%";
+    scrollLine.style.height =
+        (window.scrollY / document.body.scrollHeight) * 90 + "%";
 
     scrollTimeout = setTimeout(() => {
         scrollLine.style.opacity = 0;
     }, 250);
 });
-
-
-
-
