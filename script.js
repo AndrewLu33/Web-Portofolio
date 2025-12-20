@@ -5,7 +5,6 @@ console.log("Andrew Portfolio Loaded Successfully");
 // =========================================================
 const engineSound = new Audio("start-engine.mp3");
 engineSound.volume = 0.8;
-engineSound.preload = "auto";
 
 let introPlayed = false;
 
@@ -13,19 +12,28 @@ function playIntro() {
     if (introPlayed) return;
     introPlayed = true;
 
-    // PLAY SOUND
     engineSound.play().catch(() => {});
 
-    // PLAY BLUR CAR
     const blur = document.getElementById("carBlur");
+    const intro = document.querySelector(".f1-start");
+
     if (blur) {
+        blur.style.animation = "none";
+        blur.offsetHeight; // force reflow
         blur.style.animation =
-            "blurFlash 0.35s ease forwards, carSlide 1.2s ease-out forwards";
+            "blurFlash 0.25s ease forwards, carSlide 1s ease-out forwards";
     }
 
-    window.removeEventListener("pointerdown", playIntro);
-    window.removeEventListener("scroll", playIntro);
+    setTimeout(() => {
+        if (intro) {
+            intro.style.transition = "opacity 0.4s ease";
+            intro.style.opacity = "0";
+            intro.style.pointerEvents = "none";
+        }
+    }, 900);
 }
+
+
 
 // User interaction required
 window.addEventListener("pointerdown", playIntro, { once: true });
@@ -98,3 +106,4 @@ window.addEventListener("scroll", () => {
         scrollLine.style.opacity = 0;
     }, 250);
 });
+
