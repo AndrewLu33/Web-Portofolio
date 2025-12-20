@@ -1,43 +1,30 @@
 console.log("Andrew Portfolio Loaded Successfully");
 
+window.addEventListener("DOMContentLoaded", () => {
+    startF1Intro();
+});
+
 // =========================================================
-// AUDIO + INTRO VISUAL (SYNCED)
+// TAP TO START (Unlock Audio + Start F1 Intro)
 // =========================================================
-const engineSound = new Audio("start-engine.mp3");
-engineSound.volume = 0.8;
 
-let introPlayed = false;
+function startF1Intro() {
+    const engineSound = new Audio("Audio/start-engine.mp3");
+    engineSound.volume = 0.8;
 
-function playIntro() {
-    if (introPlayed) return;
-    introPlayed = true;
+    engineSound.play().catch(err => {
+        console.warn("Autoplay blocked:", err);
+    });
 
-    engineSound.play().catch(() => {});
-
-    const blur = document.getElementById("carBlur");
-    const intro = document.querySelector(".f1-start");
-
-    if (blur) {
-        blur.style.animation = "none";
-        blur.offsetHeight; // force reflow
-        blur.style.animation =
-            "blurFlash 0.25s ease forwards, carSlide 1s ease-out forwards";
-    }
-
+    // Flash / blur
     setTimeout(() => {
-        if (intro) {
-            intro.style.transition = "opacity 0.4s ease";
-            intro.style.opacity = "0";
-            intro.style.pointerEvents = "none";
+        const blur = document.getElementById("carBlur");
+        if (blur) {
+            blur.style.animation =
+                "blurFlash 0.35s ease forwards, carSlide 1.2s ease-out forwards";
         }
-    }, 900);
+    }, 100);
 }
-
-
-
-// User interaction required
-window.addEventListener("pointerdown", playIntro, { once: true });
-window.addEventListener("scroll", playIntro, { once: true });
 
 // =========================================================
 // TYPING EFFECT
@@ -53,8 +40,7 @@ let index = 0, charIndex = 0, isDeleting = false;
 
 function typeEffect() {
     const text = words[index];
-    document.getElementById("typing").textContent =
-        text.substring(0, charIndex);
+    document.getElementById("typing").textContent = text.substring(0, charIndex);
 
     if (!isDeleting) {
         charIndex++;
@@ -79,18 +65,18 @@ typeEffect();
 // =========================================================
 // NAVBAR SMOOTH SCROLL
 // =========================================================
-document.querySelector("a[href='#projects']")?.addEventListener("click", e => {
+document.querySelector("a[href='#projects']")?.addEventListener("click", (e) => {
     e.preventDefault();
     document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
 });
 
-document.querySelector("a[href='#contact']")?.addEventListener("click", e => {
+document.querySelector("a[href='#contact']")?.addEventListener("click", (e) => {
     e.preventDefault();
     document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
 });
 
 // =========================================================
-// RIGHT SIDE F1 SPEED LINE
+// RIGHT SIDE F1 SPEED LINE SCROLL EFFECT
 // =========================================================
 const scrollLine = document.getElementById("scrollLineRight");
 let scrollTimeout;
@@ -99,11 +85,11 @@ window.addEventListener("scroll", () => {
     clearTimeout(scrollTimeout);
 
     scrollLine.style.opacity = 1;
-    scrollLine.style.height =
-        (window.scrollY / document.body.scrollHeight) * 90 + "%";
+
+    let scrollPercent = (window.scrollY / document.body.scrollHeight) * 100;
+    scrollLine.style.height = (scrollPercent * 0.9) + "%";
 
     scrollTimeout = setTimeout(() => {
         scrollLine.style.opacity = 0;
     }, 250);
 });
-
