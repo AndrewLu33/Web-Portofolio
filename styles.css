@@ -133,10 +133,7 @@ body {
     flex-direction: column;
     z-index: 9999;
     animation: fadeOut 0.8s ease forwards;
-    animation-delay: 2.4s;
-}
-.f1-blur {
-    background-color: red !important;
+    animation-delay: 1.4s;
 }
 
 @keyframes fadeOut {
@@ -537,6 +534,7 @@ body {
         padding: 80px 6%;
     }
 }
+
 
 
 
