@@ -1,9 +1,9 @@
 console.log("Andrew Portfolio Loaded Successfully");
 
 // =========================================================
-// AUDIO – SAFE FOR VERCEL & MOBILE
+// AUDIO – GLOBAL (WAJIB UNTUK HTML & EVENT)
 // =========================================================
-const engineSound = new Audio("start-engine.mp3");
+window.engineSound = new Audio("start-engine.mp3");
 engineSound.volume = 0.8;
 engineSound.preload = "auto";
 
@@ -12,18 +12,17 @@ let soundPlayed = false;
 function handleUserInteraction() {
     if (soundPlayed) return;
 
-    engineSound.play();
+    engineSound.play().catch(e => {
+        console.warn("Play failed:", e);
+    });
     soundPlayed = true;
 
-    // cleanup
     window.removeEventListener("pointerdown", handleUserInteraction);
     window.removeEventListener("scroll", handleUserInteraction);
 }
 
-// pointerdown = click + tap (BEST PRACTICE)
 window.addEventListener("pointerdown", handleUserInteraction, { once: true });
 window.addEventListener("scroll", handleUserInteraction, { once: true });
-
 
 // =========================================================
 // TYPING EFFECT
@@ -92,6 +91,7 @@ window.addEventListener("scroll", () => {
         scrollLine.style.opacity = 0;
     }, 250);
 });
+
 
 
 
