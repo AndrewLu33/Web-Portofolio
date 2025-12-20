@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // =========================================================
 
 function startF1Intro() {
-    const engineSound = new Audio("Audio/start-engine.mp3");
+    const engineSound = new Audio("start-engine.mp3");
     engineSound.volume = 0.8;
 
     engineSound.play().catch(err => {
@@ -93,3 +93,4 @@ window.addEventListener("scroll", () => {
         scrollLine.style.opacity = 0;
     }, 250);
 });
+
